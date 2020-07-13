@@ -39,7 +39,7 @@ Aswell as symbols outside the dataset, like numbers:
 
 The latent space (16x16x1) was apparently too large to only contain representation of character-like symbols, as I found that random scribbles are getting reconstructed adequately:
 
-![random](/images/random.png)
+![random](/images/random.PNG)
 
 
 ### 20.7.13
