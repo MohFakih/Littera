@@ -47,11 +47,11 @@ The latent space (16x16x1) was apparently too large to only contain representati
 
 ![random](/images/random.PNG)
 
-### 20.7.13
+### 13.7.20
 
 My next plans are either to change the model into a Variational Autoencoder, or try using GANs. Eitherways, this crude model brought a smile to my face when I first saw it reconstructing characters I had drawn.
 
-### 20.7.14
+### 14.7.20
 
 My initial next move was to implement some form of Variational Auto-Encoder, but I had doubts that the Auto-Encoder model was just downscaling and upscaling the characters.
 And after building the "animation showcase", my fears were validated. My next step will probably be GANs.
