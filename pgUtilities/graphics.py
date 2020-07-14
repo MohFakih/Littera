@@ -11,7 +11,6 @@ def drawCircle(pos, imageArray, r=2, color=255):
         for y in range(int(ymin), int(ymax)):
             imageArray[x, int(y)] = color
 
-
 def drawLine(pos, rel, imageArray, color, width=1):
     """
     Using a naive line-drawing algorithm for now
@@ -23,11 +22,12 @@ def drawLine(pos, rel, imageArray, color, width=1):
     # y2 = (pos[1]) // 2
     dx = (rel[0]) // 2
     dy = (rel[1]) // 2
+    x_start = x1
     if x1 > x2:
         x1, x2 = x2, x1
     for x in range(x1, x2 + 1):
         if dx == 0:
             y = y1
         else:
-            y = y1 + dy * (x - x1) / dx
+            y = y1 + dy * (x - x_start) / dx
         drawCircle([x, y], imageArray, r=width, color=color)
