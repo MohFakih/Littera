@@ -29,17 +29,17 @@ Ideally, I wanted a model that can create symbols that are character-like, and d
 
 The model was able to recreate latin and cyrillic characters:
 
-![Latin character T](/images/T.png)
+![Latin character T](/images/T.PNG)
 
-![Cyrillic character J](/images/J.png)
+![Cyrillic character J](/images/J.PNG)
 
 Aswell as symbols outside the dataset, like numbers:
 
-![number 3](/images/3.png)
+![number 3](/images/3.PNG)
 
 The latent space (16x16x1) was apparently too large to only contain representation of character-like symbols, as I found that random scribbles are getting reconstructed adequately:
 
-![random](/images/random.png)
+![random](/images/random.PNG)
 
 
 ### 20.7.13
