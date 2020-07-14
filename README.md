@@ -9,10 +9,16 @@ The Deep Learning model used is a simple Convolutional Autoencoder.
 The Input and Output spaces are 256x256x1 images and the latent space is 16x16x1.
 The model was trained on 28k+ Latin and Cyrillic characters.
 
-### drawTool
+### drawTool showcase
 I have implented a small pygame interface where you can draw a character by hand and see the reconstructed output of the model in real time. (pictures shown below)
 
 Commands: LMouse=draw, RMouse = Erase, 'R' = reset/eraseAll
+
+### animation showcase
+Simplex noise is used to smoothly move through the latent space in order to create an "animation". The 16x16 latent space and the 256x256 output are visualized next to each other.
+
+##### Both showcases mentioned are in /showcases
+##### The notebooks are essentially only used to train and manually verify the model
 
 ## Dataset
 The dataset used to train the model is the crowdsourced [CoMNIST](https://github.com/GregVial/CoMNIST) dataset which contains the Latin and Cyrillic alphabets.
@@ -41,10 +47,13 @@ The latent space (16x16x1) was apparently too large to only contain representati
 
 ![random](/images/random.PNG)
 
-
 ### 20.7.13
 
-My next plans are either to change the model into a Variational Autoencoder, or try using GANs.
-Eitherways, this crude model brought a smile to my face when I first saw it reconstructing characters I had drawn.
+My next plans are either to change the model into a Variational Autoencoder, or try using GANs. Eitherways, this crude model brought a smile to my face when I first saw it reconstructing characters I had drawn.
 
+### 20.7.14
 
+My initial next move was to implement some form of Variational Auto-Encoder, but I had doubts that the Auto-Encoder model was just downscaling and upscaling the characters.
+And after building the "animation showcase", my fears were validated. My next step will probably be GANs.
+
+### I will onnly keep the recent plans here and I will move them to a different text file when they get too numerous.
