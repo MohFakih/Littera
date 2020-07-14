@@ -1,11 +1,16 @@
 import os
 import numpy as np
 from PIL import Image
-
+import tensorflow as tf
 
 """
 Contains functions used in loading images into memory
 """
+
+
+
+# TODO: change this system to use tf.data.dataset and/or keras preprocessing, they probably have better data pipelining
+
 
 
 def getLanguageDirPaths():
@@ -25,9 +30,9 @@ def getImagesFromLanguageDir(languagePath):
     imgPathList = []  # Holds path for each individual image
     languageDirList = os.listdir(languagePath)  # List all letter directories
     for letterDir in languageDirList:
-        pathToLetterDir = languagePath + "\\" + letterDir
+        pathToLetterDir = os.path.join(languagePath, letterDir)
         imageNameList = os.listdir(pathToLetterDir)
-        imgPathList += [pathToLetterDir + "\\" + imageName for imageName in imageNameList]
+        imgPathList += [os.path.join(pathToLetterDir, imageName) for imageName in imageNameList]
     return imgPathList
 
 
@@ -40,7 +45,7 @@ def getPathToAllImages():
         pathToAllImages += getImagesFromLanguageDir(langPath)
     return pathToAllImages
 
-def sampleImages(listOfPaths, n=512, dim1=None, dim2=None, exclude=0):
+def sampleImages(listOfPaths, n=512, dim1=None, dim2=None, exclude=None):
     """
     :param listOfPaths: List of paths to all the images to sample from
     :param n: Number of images to sample
@@ -49,7 +54,10 @@ def sampleImages(listOfPaths, n=512, dim1=None, dim2=None, exclude=0):
     :param dim2: dim1 and dim2 are the dimensions of the output images, a None value will not resize the images
     :return: (n, dim1, dim2, 1) numpy array holding n [dim1 * dim2] grayscale images
     """
-    pathsOfImagesToLoad = np.random.choice(listOfPaths[:-exclude], n, replace=False)
+    if not exclude:
+        pathsOfImagesToLoad = np.random.choice(listOfPaths, n, replace=False)
+    else:
+        pathsOfImagesToLoad = np.random.choice(listOfPaths[:-exclude], n, replace=False)
     o = []
     for path in pathsOfImagesToLoad:
         img = np.array(Image.open(path))
